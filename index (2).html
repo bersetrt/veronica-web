@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Veronica to know my name</title>
+  <style>
+    body {
+      margin: 0; font-family: Arial, sans-serif; background: #0b0c10; color: #e6e7eb;
+      display: flex; justify-content: center; align-items: center; height: 100vh;
+    }
+    .card { background: #121318; padding: 2rem; border-radius: 12px; max-width: 500px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.5); }
+    input { width: 100%; padding: .8rem 1rem; margin: .8rem 0; border-radius: 8px; border: none; outline: none; }
+    button { padding: .8rem 1.2rem; border: none; border-radius: 8px; cursor: pointer; background: #34d399; font-weight: bold; }
+    button:hover { background: #2fb387; }
+    .muted { color: #b7bcc7; margin-top: .8rem; }
+    #story { margin-top: 1rem; color: #cbd5e1; line-height: 1.5; display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Tap to get my name</h1>
+    <p class="muted">Enter your username below</p>
+    <input id="username" placeholder="Enter your username e.g. @your user name" />
+    <button onclick="revealName()">Tap</button>
+    <p id="nameResult" class="muted"></p>
+    <div id="story"></div>
+  </div>
+
+  <script>
+    const KNOWN_USER = '@vero_12215';
+
+    function revealName(){
+      const u = document.querySelector('#username').value.trim();
+      const res = document.querySelector('#nameResult');
+      const storyBox = document.querySelector('#story');
+
+      if(u === KNOWN_USER){
+        res.textContent = 'Veronica';
+        storyBox.style.display = 'block';
+        storyBox.textContent = "Once upon a time, in a quiet town, there lived someone whose heart was full of kindness and dreams. That person’s true name, hidden deep like a secret treasure, was BETSELOT. Only those who entered the right key could unlock it and know the story.";
+      } else if(u.length === 0){
+        res.textContent = 'Please enter your username.';
+        storyBox.style.display = 'none';
+      } else {
+        res.textContent = 'Unknown username.';
+        storyBox.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
